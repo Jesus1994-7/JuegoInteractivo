@@ -1,0 +1,72 @@
+body {
+    font-size: 0.8em;   
+}
+h1 {
+    text-align: center;
+    color: darksalmon;
+    font-size: 1.2em;
+}
+
+#fase1 div img {
+    width: 220vh;
+    height: 96vh;
+}
+#fase2 {
+    background-image: url(/img/fondo.jpg);
+    width: 100%;
+    height: 95vh;
+}
+.luchadores img {
+    height: 180px;
+    width: 200px;
+    border-radius: 20px;
+    margin-left: 5px;
+}
+#personajes {
+    display: flex;
+    margin-left: 23%;
+    flex-wrap: wrap;
+}
+.luchadores img:hover {
+    border: 3px solid rgb(28, 184, 28);
+    font-size: 1.1em;
+}
+.luchadores p {
+    text-align: center;
+    color: darkred;
+}
+.container-emparejamiento {
+    height: 100vh;
+    width: 100%;
+    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container-pelea {
+    height: 80%;
+    width: 50%;
+    background: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    left: 25%;
+    top: 50px;
+}
+
+.pelea {
+    height: 30%;
+    width: 100%;
+    background: pink;   
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.emparejamiento1, .emparejamiento2 {
+    height: 70%;
+    width: 20%;
+    background-color: chartreuse;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!--INCIO-->
+
+    <section class="sections" id="fase1" >
+        <div><img src="/img/inicioJogo.jpg" alt="" onclick="partida.init2()"></div>
+    </section>
+
+<!--ELECCION PERSONAJES-->
+
+    <section class="sections" id="fase2" style="display:none;">
+        <h1>ELIGE ENTRE ESTOS PERSONAJES</h1>
+        <div id="personajes">
+            <div class="luchadores" id="div1">
+                <img src="img/abascal.jpg" id="1" onclick="partida.escoge(this.id)">
+                <p>Santi</p>
+            </div>
+            <div class="luchadores" id="div2">
+                <img src="img/Rivera.jpg" id="2" onclick="partida.escoge(this.id)">
+                <p>Rivera</p>
+            </div>
+            <div class="luchadores" id="div3">
+                <img src="img/esperanza.jpg" id="3" onclick="partida.escoge(this.id)">
+                <p>Esperanza</p>
+            </div>
+            <div class="luchadores" id="div4">
+                <img src="img/rajoy.jpg" id="4" onclick="partida.escoge(this.id)">
+                <p>Rajoy</p>
+            </div>
+            <div class="luchadores" id="div5">
+                <img src="img/echenique.jpg" id="5" onclick="partida.escoge(this.id)">
+                <p>Echenique</p>
+            </div> 
+            <div class="luchadores" id="div6">
+                <img src="img/Zapatero.jpg" id="6" onclick="partida.escoge(this.id)">
+                <p>Zapatero</p>
+            </div>
+            <div class="luchadores" id="div7">
+                <img src="img/Iglesias.jpg" id="7" onclick="partida.escoge(this.id)">
+                <p>Iglesias</p>
+            </div>
+            <div class="luchadores" id="div8">
+                <img src="img/PedroSchz.jpg" id="8" onclick="partida.escoge(this.id)">
+                <p>Sanchez</p>
+            </div>
+        </div>
+        
+    </section>
+
+    <!--ENFRENTAMIENTOS PERSONAJES-->
+
+    <section  class="container-emparejamiento"  id="fase3" style="display: none;">
+        
+    </section>
+
+    <!--SCRIPTS-->
+    <script src="js/utiles.js"></script>
+    <script src="js/fighters.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
