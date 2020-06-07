@@ -10,7 +10,7 @@ class Fighter {
         this.ataque = ataque;
         this.agilidad = agilidad;
         this.suerte = suerte;
-        this.vida = 100;
+        this.vida = 200;
         /*this.setImage = function(idImage,src){
             document.getElementById(idImage).src = src;
         }*/
@@ -88,17 +88,106 @@ let allplayers = {
 //juego
 
 let juego = {
-
+    jugador1: "",
+    jugador2: "",
     turno: 0,
-    player1: "",
-    player2: "",
     ganador: "",
+    victoriap1: "",
+    victoriap2: "",
 
     resetearLucha(){
+        this.turno = 0;
+        this.iniciativa = "";
+        this.jugador1 = "";
+        this.jugador2 = "";
+    },
+    limpiarPelea() {
+        this.resetearLucha();
 
+
+        partida.cont_fight++;
+        this.jugador1.vida = 300;
+        this.jugador2.vida = 300;
+
+        partida.init4();
     },
 
-    turnoLucha(){
+    turnoLucha(arglu1,arglu2){
 
-    },
+        iniciativa = funciones.random(1, 3);
+
+        this.turno++;
+        this.jugador1 = arglu1;
+        this.jugador2 = arglu2;
+
+
+        //estado y acciones luchador1
+        if(this.jugador1.vida > 0){
+                if(iniciativa == 1) {
+                    this.victoriap1 = (this.jugador2 <= 0) ? "v" : "m";
+                    if(this.victoriap1 == "v") {
+                        //Ganaria el jugador1
+                    }else {
+                        this.jugador1.atacar(this.jugador2);
+
+                        if(this.jugador2.vida < 0) {
+                            this.jugador2.vida = 0;
+                        }
+
+                        let lbact = document.getElementById("glad2v");
+                        lbact.innerHTML = `VIDA JUGADOR 2 : ${this.jugador2.vida}`;
+
+
+                    }
+                }
+        } else {
+            //gana jugador2
+            document.getElementById("fist").onclick = "";
+            this.winner = `${this.jugador2.nombre} gana ${this.jugador1.nombre} KO`;
+
+            let koknow2 = document.getElementById("anuncioko");
+            koknow2.innerHTML = `${this.jugador2.nombre} GANA... ${this.jugador1.nombre} MURIO`
+
+            partida.equipo2Gana++;
+
+            resolveIn(2000).then(delay => {
+                //gana equipo 2
+                this.limpiarPelea();
+            });
+        }
+
+        if(this.jugador2.vida > 0) {
+            if(iniciativa == 2) {
+                this.victoriap2 = (this.jugador1.vida <= 0) ? "v" : "m";
+                if (this.victoriap2 == "v") {
+                    //gana el jugador2
+                } else {
+                    this.jugador2.atacar(this.jugador1);
+
+                    if(this.jugador1.vida < 0) {
+                        this.jugador1.vida = 0;
+                    }
+
+                    let lbact = document.getElementById("glad1v");
+                    lbact.innerHTML = `VIDA JUGADOR 1 : ${this.jugador1.vida}`;
+
+                }
+            }
+        } else {
+            //gana jugador 1
+            this.ganador = `${this.jugador1.nombre} GANA ${this.jugador2.nombre} KO`
+            document.getElementById("fist").onclick = "";
+
+            let koknow = document.getElementById("anuncioko");
+
+            koknow.innerHTML = `${this.jugador1.nombre} GANA.. ${this.jugador2.nombre} MUERE`;
+
+            partida.equipo1Gana++;
+
+            resolveIn(2200).then(delay => {
+                //gana equipo 1
+                this.limpiarPelea();
+            });
+        }
+    }
 }

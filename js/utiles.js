@@ -10,5 +10,11 @@ const funciones = {
     }
 }
 
+function log (arg) {
+    //console log...
+    console.log(arg);
+}
+
+
 const resolveIn = delay =>
 new Promise(res => setTimeout(() => res(delay), delay));

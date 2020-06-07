@@ -1,8 +1,15 @@
 let partida = {
     
-    //propiedades
+    //propiedade
+    
     equipo1: [],
     equipo2: [],
+    equipo1Gana: 0,
+    equipo2Gana: 0,
+    cont: 0,
+    cont_fight: 0,
+    arg1: "",
+    arg2: "",
     //métodos
 
   escoge(idLuchador){
@@ -19,34 +26,32 @@ let partida = {
           this.equipo2.push(allplayers[idLuchador]);
           
           console.log(this.equipo2);
-        }else if(this.equipo2.length == 3){
+        }
+        
+        if(this.equipo2.length == 3){
           resolveIn(2000).then(delay => {
             this.init3();
-          })
+          });
         }
         //LLamamos a la funcion para deshabilitar los personajes
         deshabilitar(idLuchador); 
 
   },
 
-  init1() {
-    location.reload(true)
-  },
-
   init2(){
   
-   organizador(2);
+   this.organizador(2);
     
   },
   init3(){
 
-    organizador(3);
+    this.organizador(3);
 
     let seccionCompleta = document.getElementById('fase3');
     seccionCompleta.innerHTML = `<div class="container-pelea">
     <div class="pelea">
         <div class="emparejamiento1"><img src="img/${this.equipo1[0].nombre}S.jpg" alt=""></div>
-        
+        <p>vs</p>
         <div class="emparejamiento2"><img src="img/${this.equipo2[0].nombre}S.jpg" alt=""></div>
     </div>
     <div class="pelea">
@@ -60,34 +65,77 @@ let partida = {
         <div class="emparejamiento2"><img src="img/${this.equipo2[2].nombre}S.jpg" alt="" ></div>
     </div>
     
-</div>`;
+  </div>`;
+
+    resolveIn(2550).then(delay => {
+      this.init4();
+    });
 
   },
 
+  init4() {
 
+    this.organizador(4);
 
+    if (this.cont_fight < 3) {
+            
+      //luchadores actuales.
+      arg1 = this.equipo1[this.cont_fight];
+      arg2 = this.equipo2[this.cont_fight];
 
+      let seccionLucha = document.getElementById("fase4");
+      seccionLucha.innerHTML = `<div class="cabecera">
+          <div class="cab1"></div>
+          <div class="cab2">FIGHT ${this.cont_fight + 1}</div>
+          <div class="cab3"></div>
+        </div>
+        <div class="bodyfight">
+          <div class="bloca">
+              <div class="luch1name">${this.equipo1[this.cont_fight].nombre}</div>
+              <div class="luch1sprite"><img src="./img/${this.equipo1[this.cont_fight].nombre}p1.png"></div>
+              <div id="glad1v" class="luch1life">PLAYER 1 LIFE : ${this.equipo1[this.cont_fight].vida}</div>
+          </div>
+          <div class="blocb">
+              <div class="luch2name">${this.equipo2[this.cont_fight].nombre}</div>
+              <div class="luch2sprite"><img src="./img/${this.equipo2[this.cont_fight].nombre}p2.png"></div>
+              <div id="glad2v" class="luch2life">PLAYER 2 LIFE : ${this.equipo2[this.cont_fight].vida}</div>
+          </div>
+        </div>
+        <div class="announcement">
+          <div class="ann1"></div>
+          <div id ="anuncioko" class="ann2"></div>
+          <div class="ann3"></div>
+        </div>
+        <div class="punch">
+          <div class="pun1"></div>
+          <div class="pun2"><img id="fist" class ="hitter" src="./img/microfono.jpg" onclick="juego.turnoLucha(arg1,arg2)"></div>
+          <div class="pun3"></div>
+        </div>`;
+    }
 
-   
-}
+  },
 
-const deshabilitar = (idLuchador) => {
-     
-  //Ocultamos los personajes que vayamos eligiendo
-      let personaje = document.getElementById('div' + idLuchador);
-  
-      personaje.hidden = true;
-  
-}
-const organizador = (arg_0) => {
-  let fasewant = "fase" + arg_0;
-  let ArrayFases = ["fase1", "fase2","fase3", "fase4", "fase5", "fase6"];
+ organizador(arg_0) {
 
-  ArrayFases = ArrayFases.filter(val => !fasewant.includes(val)); //esta funcion es la que te saca la fase que quieres
-  
-  document.getElementById(fasewant).style.display = "block";
+    let fasewant = "fase" + arg_0;
+    let ArrayFases = ["fase1", "fase2","fase3","fase4"];
 
-  for(let _f of ArrayFases){
-      document.getElementById(_f).style.display = "none";
+    ArrayFases = ArrayFases.filter(val => !fasewant.includes(val)); //esta funcion es la que te saca la fase que quieres
+    
+    document.getElementById(fasewant).style.display = "block";
+
+    for(let _f of ArrayFases){
+        document.getElementById(_f).style.display = "none";
+      }
+  } 
+}  
+  const deshabilitar = (idLuchador) => {
+       
+    //Ocultamos los personajes que vayamos eligiendo
+        let personaje = document.getElementById('div' + idLuchador);
+    
+        personaje.hidden = true;
+    
   }
-} 
+  
+  
