@@ -5,7 +5,7 @@ body {
 
 /*EFECTO TITULO*/
 @keyframes tipsy {
-    0 {
+    0% {
       transform: translateX(-50%) translateY(-50%) rotate(0deg);
     }
     100% {
