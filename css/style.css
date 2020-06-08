@@ -2,10 +2,72 @@ body {
     font-size: 0.8em;
     color: white;   
 }
-h1 {
+
+/*EFECTO TITULO*/
+@keyframes tipsy {
+    0 {
+      transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+    100% {
+      transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
+  }
+    
+  a {
+    color: #FF652F;
+    text-shadow: 0 20px 25px #ff9900, 0 40px 60px #ff9900;
+    font-size: 80px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: -3px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  a:before,
+  a:after {
+    content: '';
+    padding: .9em .4em;
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    top: 50%;
+    display: block;
+    border: 15px solid red;
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    animation: 10s infinite alternate ease-in-out tipsy;
+  }
+  
+  a:before {
+    border-color: #3f2927 #3f2927 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    z-index: -1;
+  }
+  
+  a:after {
+    border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #d9524a #d9524a;
+    box-shadow: 25px 25px 25px rgba(46, 46, 49, .8);
+  }
+
+/*///////////////////////////////////////////////////*/
+.pressTOstart {
+    color: #FF652F;
+    font-size: 4em;
+    font-family: 'Piedra', cursive;
+    text-shadow: 3px 1px #ff9900;
+    position: absolute;
+    bottom: 30%;
+    left: 50%;
+    cursor: pointer;
+}
+.pressTOstart2 {
+    color: #FF652F;
+    font-size: 3em;
+    font-family: 'Piedra', cursive;
+    text-shadow: 3px 1px #ff9900;
     text-align: center;
-    color: darksalmon;
-    font-size: 1.2em;
 }
 
 #fase1 div img {
@@ -15,7 +77,7 @@ h1 {
 #fase2 {
     background-image: url(/img/fondo.jpg);
     width: 100%;
-    height: 95vh;
+    height: 93vh;
 }
 .luchadores img {
     height: 180px;
@@ -235,3 +297,38 @@ h1 {
 #fist:active {
     filter: invert(40%);
 }
+.seccionGanador {
+    background-color: black;
+}
+
+.tituloGanador {
+    display: flex;
+    justify-content: center;
+    color: #FF652F;
+    font-size: 3em;
+    font-family: 'Piedra', cursive;
+    text-shadow: 3px 1px #ff9900;
+}
+.reiniciarJuego {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    color: #FF652F;
+    font-size: 3em;
+    font-family: 'Piedra', cursive;
+    text-shadow: 3px 1px #ff9900;
+}
+  .equipoGanador {
+    display: flex;
+    justify-content: center;
+  }
+  .equipoGanador img {
+    margin-right: 10px;
+  }
+  .vs {
+    color: #FF652F;
+    font-size: 3em;
+    font-family: 'Piedra', cursive;
+    text-shadow: 3px 1px #ff9900;
+    
+  }

@@ -21,6 +21,7 @@ let partida = {
         if(this.equipo1.length < 3){
           this.equipo1.push(allplayers[idLuchador]);
           console.log(this.equipo1);
+
         }else if(this.equipo2.length < 3){
           
           this.equipo2.push(allplayers[idLuchador]);
@@ -28,7 +29,13 @@ let partida = {
           console.log(this.equipo2);
         }
         
+        if(this.equipo1.length == 3){
+          let titulo = document.getElementById('tituloEleccion');
+          titulo.textContent = "ELIGE ENTRE ESTOS PERSONAJES.. EQUIPO 2"
+        }
+        
         if(this.equipo2.length == 3){
+
           resolveIn(2000).then(delay => {
             this.init3();
           });
@@ -36,6 +43,9 @@ let partida = {
         //LLamamos a la funcion para deshabilitar los personajes
         deshabilitar(idLuchador); 
 
+  },
+  init1(){
+    location.reload(true);
   },
 
   init2(){
@@ -51,21 +61,22 @@ let partida = {
     seccionCompleta.innerHTML = `<div class="container-pelea">
     <div class="pelea">
         <div class="emparejamiento1"><img src="img/${this.equipo1[0].nombre}S.jpg" alt=""></div>
-        <p>vs</p>
+        <p class="vs">vs</p>
         <div class="emparejamiento2"><img src="img/${this.equipo2[0].nombre}S.jpg" alt=""></div>
     </div>
     <div class="pelea">
         <div class="emparejamiento1"><img src="img/${this.equipo1[1].nombre}S.jpg" alt="" ></div>
-        <p>vs</p>
-        <div id="emparejamiento2"><img src="img/${this.equipo2[1].nombre}S.jpg" alt="" ></div>
+        <p class="vs">vs</p>
+        <div class="emparejamiento2"><img src="img/${this.equipo2[1].nombre}S.jpg" alt="" ></div>
     </div>
     <div class="pelea">
         <div class="emparejamiento1"><img src="img/${this.equipo1[2].nombre}S.jpg" alt="" ></div>
-        <p>vs</p>
+        <p class="vs">vs</p>
         <div class="emparejamiento2"><img src="img/${this.equipo2[2].nombre}S.jpg" alt="" ></div>
     </div>
     
   </div>`;
+  
 
     resolveIn(2550).then(delay => {
       this.init4();
@@ -111,14 +122,53 @@ let partida = {
           <div class="pun2"><img id="fist" class ="hitter" src="./img/microfono.jpg" onclick="juego.turnoLucha(arg1,arg2)"></div>
           <div class="pun3"></div>
         </div>`;
+    }else {
+  
+
+  
+      resolveIn(2000).then(delay => {
+        this.init5();
+      });
     }
+
+  },
+  init5() {
+    this.organizador(5);
+    
+    let pn = 0;
+    let pnc = 0;
+    let eg = "";
+
+    //comprobando equipo ganador
+    if (this.equipo1Gana > this.equipo2Gana) {
+        numero = 1;
+        eg = this.equipo1;
+    } else {
+        numero = 2;
+        eg = this.equipo2;
+    };    console.log('estoy aqui')
+
+      let seccionGanador = document.getElementById('fase5');
+
+      seccionGanador.innerHTML = `
+      <div class="tituloGanador">
+        <h1>EL EQUIPO GANADOR ES.. EQUIPO ${numero}</h1>
+      </div>
+      <div class="equipoGanador">
+        <img src="img/${eg[0].nombre}.jpg"  alt="">
+        <img src="img/${eg[1].nombre}.jpg"  alt="">
+        <img src="img/${eg[2].nombre}.jpg"  alt="">
+      </div>
+      <div>
+          <p class="reiniciarJuego" onclick="partida.init1()">REINICIAR JUEGO</p>
+      </div>`
 
   },
 
  organizador(arg_0) {
 
     let fasewant = "fase" + arg_0;
-    let ArrayFases = ["fase1", "fase2","fase3","fase4"];
+    let ArrayFases = ["fase1", "fase2","fase3","fase4","fase5"];
 
     ArrayFases = ArrayFases.filter(val => !fasewant.includes(val)); //esta funcion es la que te saca la fase que quieres
     

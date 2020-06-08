@@ -35,12 +35,7 @@ class Fighter {
         /*finalmente , restamos a la vida del enemigo el valor establecido en el golpe (hit)*/
         enemigo.vida -= hit;
     }
-    defenderse(){
-        /*........*/ 
-    }
-    esquivar(){
-        /*........*/ 
-    }
+
     especial(){
         let hit = (this.ataque + 2 );
 
@@ -51,16 +46,16 @@ class Fighter {
 let f1 = new Fighter('abascal', 15, 30, 25, 40);
 //f1.setImage("img1",'./img/abascal.jpg');
 
-let f2 = new Fighter('Rivera', 15, 20, 50, 20);
+let f2 = new Fighter('Rivera', 15, 20, 40, 20);
 //f2.setImage("img1", './img/Rivera.jpg');
 
-let f3 = new Fighter('esperanza', 30, 30, 60, 20);
+let f3 = new Fighter('esperanza', 25, 30, 40, 10);
 //f3.setImage("img2", './img/esperanza.jpg');
 
-let f4 = new Fighter('rajoy', 35, 30, 15, 50);
+let f4 = new Fighter('rajoy', 25, 30, 15, 40);
 //f4.setImage("img2", './img/rajoy.jpg');
 
-let f5 = new Fighter('echenique', 15, 35, 5, 35);
+let f5 = new Fighter('echenique', 15, 30, 5, 35);
 //f5.setImage("img2", './img/echenique.jpg');
 
 let f6 = new Fighter('Zapatero', 20, 20, 15, 25);

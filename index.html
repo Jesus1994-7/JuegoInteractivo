@@ -4,20 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!--CSS-->
     <link rel="stylesheet" href="css/style.css">
+    <!--FUENTE TITULO-->
+    <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--FADEIN-->
+    <script src="js/fadeIn.js"></script>
+    
 </head>
 <body>
 
 <!--INCIO-->
 
     <section class="sections" id="fase1" >
-        <div><img src="/img/inicioJogo.jpg" alt="" onclick="partida.init2()"></div>
+        <div><img src="/img/inicioJogo.jpg" alt="" ></div>
+        <a href="#" class="pressTOstart" onclick="partida.init2()">PRESS START</a>
     </section>
 
 <!--ELECCION PERSONAJES-->
 
     <section class="sections" id="fase2" style="display:none;">
-        <h1>ELIGE ENTRE ESTOS PERSONAJES</h1>
+        <h1 id="tituloEleccion" class="pressTOstart2">ELIGE ENTRE ESTOS PERSONAJES.. EQUIPO 1</h1>
         <div id="personajes">
             <div class="luchadores" id="div1">
                 <img src="img/abascal.jpg" id="1" onclick="partida.escoge(this.id)">
@@ -63,7 +72,10 @@
 
     <section class="lucha" id="fase4" style="display: none;"></section>
 
+    <section class="seccionGanador" id="fase5" style="display: none;"></section>
+
     <!--SCRIPTS-->
+    <script src="js/animaciones.js"></script>
     <script src="js/utiles.js"></script>
     <script src="js/fighters.js"></script>
     <script src="js/main.js"></script>
