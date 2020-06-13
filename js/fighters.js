@@ -10,7 +10,7 @@ class Fighter {
         this.ataque = ataque;
         this.agilidad = agilidad;
         this.suerte = suerte;
-        this.vida = 200;
+        this.vida = 300;
         /*this.setImage = function(idImage,src){
             document.getElementById(idImage).src = src;
         }*/
@@ -25,11 +25,19 @@ class Fighter {
 
         let luck = funciones.random(1, enemigo.suerte);
 
+        
+        
+
         /*A continuación, depositamos en la variable hit, el resultado de primero restarle la defensa 
         del enemigo al luchador que emite el golpe, y posteriormente multiplicarlo por la variable luck
         obtenida antes.*/
 
         let hit = (this.ataque - enemigo.defensa) * luck;
+        
+        //let vida1 = document.getElementById('barraVida1').style.width = `${this.vida - hit}px`;
+        //let vida2 = document.getElementById('barraVida2').style.width = `${this.vida - hit}px`;
+        
+        
 
 
         /*finalmente , restamos a la vida del enemigo el valor establecido en el golpe (hit)*/
@@ -58,7 +66,7 @@ let f4 = new Fighter('rajoy', 25, 30, 15, 40);
 let f5 = new Fighter('echenique', 15, 30, 5, 35);
 //f5.setImage("img2", './img/echenique.jpg');
 
-let f6 = new Fighter('Zapatero', 20, 20, 15, 25);
+let f6 = new Fighter('Zapatero', 20, 30, 25, 25);
 //f6.setImage("img2", './img/Zapatero.jpg');
 
 let f7 = new Fighter('Iglesias', 20, 20, 30, 35);
@@ -110,10 +118,22 @@ let juego = {
     turnoLucha(arglu1,arglu2){
 
         iniciativa = funciones.random(1, 3);
+///////////////////////////////////////////////////////////////////////////////////////
+        
+
+        //let barra1 = document.getElementById('barraProgreso1').value;
+        //let barra2 = document.getElementById('barraProgreso2').value;
+
+        
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
 
         this.turno++;
         this.jugador1 = arglu1;
         this.jugador2 = arglu2;
+
 
 
         //estado y acciones luchador1
@@ -125,8 +145,20 @@ let juego = {
                     }else {
                         this.jugador1.atacar(this.jugador2);
 
-                        if(this.jugador2.vida < 0) {
+
+                        
+                        let vida2 = document.getElementById('barraVida2').style.width = `${this.jugador2.vida}px`;
+
+                        //console.log(vida1)
+                        //console.log(vida2)
+                        
+                        
+                        
+
+                        if(this.jugador2.vida <= 0) {
                             this.jugador2.vida = 0;
+                            vida2 = document.getElementById('barraVida2').style.width = `${0}px`;
+
                         }
 
                         let lbact = document.getElementById("glad2v");
@@ -159,8 +191,11 @@ let juego = {
                 } else {
                     this.jugador2.atacar(this.jugador1);
 
-                    if(this.jugador1.vida < 0) {
+                    let vida1 = document.getElementById('barraVida1').style.width = `${this.jugador1.vida}px`;
+
+                    if(this.jugador1.vida <= 0) {
                         this.jugador1.vida = 0;
+                        vida1 = document.getElementById('barraVida2').style.width = `${0}px`;
                     }
 
                     let lbact = document.getElementById("glad1v");

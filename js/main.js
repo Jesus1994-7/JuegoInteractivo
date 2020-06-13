@@ -102,14 +102,17 @@ let partida = {
         </div>
         <div class="bodyfight">
           <div class="bloca">
+              <div id="barraVida1"></div>
               <div class="luch1name">${this.equipo1[this.cont_fight].nombre}</div>
               <div class="luch1sprite"><img src="./img/${this.equipo1[this.cont_fight].nombre}p1.png"></div>
-              <div id="glad1v" class="luch1life">PLAYER 1 LIFE : ${this.equipo1[this.cont_fight].vida}</div>
+              <div id="glad1v" class="luch1life">VIDA JUGADOR 1 : ${this.equipo1[this.cont_fight].vida}</div>
           </div>
           <div class="blocb">
+              <div id="barraVida2"></div>
               <div class="luch2name">${this.equipo2[this.cont_fight].nombre}</div>
               <div class="luch2sprite"><img src="./img/${this.equipo2[this.cont_fight].nombre}p2.png"></div>
-              <div id="glad2v" class="luch2life">PLAYER 2 LIFE : ${this.equipo2[this.cont_fight].vida}</div>
+              <div id="glad2v" class="luch2life">VIDA JUGADOR 2 : ${this.equipo2[this.cont_fight].vida}</div>
+              
           </div>
         </div>
         <div class="announcement">
@@ -121,15 +124,20 @@ let partida = {
           <div class="pun1"></div>
           <div class="pun2"><img id="fist" class ="hitter" src="./img/microfono.jpg" onclick="juego.turnoLucha(arg1,arg2)"></div>
           <div class="pun3"></div>
-        </div>`;
-    }else {
+        </div>`
+        //AQUI HACEMOS LAS BARRAS DE LA VIDA DE CADA PERSONAJE--FALLO  CON EL PERSONAJE 1, SE APLICA TARDE A LA BARRA DE VIDA
+        //let vida1 = document.getElementById('barraVida1').style.width = `${this.equipo1[this.cont_fight].vida}px`
+        //let vida2 = document.getElementById('barraVida2').style.width = `${this.equipo2[this.cont_fight].vida}px`
+
+        ;
+    }/*else {
   
 
   
       resolveIn(2000).then(delay => {
         this.init5();
       });
-    }
+    }*/
 
   },
   init5() {
