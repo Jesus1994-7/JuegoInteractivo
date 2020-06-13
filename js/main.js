@@ -125,9 +125,7 @@ let partida = {
           <div class="pun2"><img id="fist" class ="hitter" src="./img/microfono.jpg" onclick="juego.turnoLucha(arg1,arg2)"></div>
           <div class="pun3"></div>
         </div>`
-        //AQUI HACEMOS LAS BARRAS DE LA VIDA DE CADA PERSONAJE--FALLO  CON EL PERSONAJE 1, SE APLICA TARDE A LA BARRA DE VIDA
-        //let vida1 = document.getElementById('barraVida1').style.width = `${this.equipo1[this.cont_fight].vida}px`
-        //let vida2 = document.getElementById('barraVida2').style.width = `${this.equipo2[this.cont_fight].vida}px`
+
 
         ;
     }/*else {

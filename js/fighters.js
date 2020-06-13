@@ -146,11 +146,10 @@ let juego = {
                         this.jugador1.atacar(this.jugador2);
 
 
-                        
+                        //BarraVida personaje 2
                         let vida2 = document.getElementById('barraVida2').style.width = `${this.jugador2.vida}px`;
 
-                        //console.log(vida1)
-                        //console.log(vida2)
+                        
                         
                         
                         
@@ -191,6 +190,8 @@ let juego = {
                 } else {
                     this.jugador2.atacar(this.jugador1);
 
+
+                    //BarraVida Personaje 1
                     let vida1 = document.getElementById('barraVida1').style.width = `${this.jugador1.vida}px`;
 
                     if(this.jugador1.vida <= 0) {
