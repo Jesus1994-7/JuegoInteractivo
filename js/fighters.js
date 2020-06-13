@@ -34,11 +34,6 @@ class Fighter {
 
         let hit = (this.ataque - enemigo.defensa) * luck;
         
-        //let vida1 = document.getElementById('barraVida1').style.width = `${this.vida - hit}px`;
-        //let vida2 = document.getElementById('barraVida2').style.width = `${this.vida - hit}px`;
-        
-        
-
 
         /*finalmente , restamos a la vida del enemigo el valor establecido en el golpe (hit)*/
         enemigo.vida -= hit;
@@ -118,17 +113,6 @@ let juego = {
     turnoLucha(arglu1,arglu2){
 
         iniciativa = funciones.random(1, 3);
-///////////////////////////////////////////////////////////////////////////////////////
-        
-
-        //let barra1 = document.getElementById('barraProgreso1').value;
-        //let barra2 = document.getElementById('barraProgreso2').value;
-
-        
-
-
-/////////////////////////////////////////////////////////////////////////////////////////
-
 
         this.turno++;
         this.jugador1 = arglu1;
