@@ -166,10 +166,7 @@ let juego = {
                             e.dataTransfer.setData("Text", lbact.innerHTML = `VIDA JUGADOR 2 : ${300}`);
                             e.dataTransfer.setData("Text", vida1 = document.getElementById('barraVida2').style.width = "100%")
                         }
-                        if(contador => 1){
-                            paguita.hidden1 = true;
-                        }
-
+                        
 
                     }
                 }
@@ -225,13 +222,11 @@ let juego = {
                     
                     //funcion DROP JUGADOR 1
                     function soltamosArrastre1(e) {
-                        contador++;
+                        
                         e.dataTransfer.setData("Text", lbact.innerHTML = `VIDA JUGADOR 1 : ${300}`);
                         e.dataTransfer.setData("Text", vida1 = document.getElementById('barraVida1').style.width = "100%");
 
-                        if(contador => 1){
-                            destinoPaguita2.hidden = true;
-                        }
+                        
                     }
                     
 
