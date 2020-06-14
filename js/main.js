@@ -130,14 +130,14 @@ let partida = {
 
 
         ;
-    }/*else {
+    }else {
   
 
   
       resolveIn(2000).then(delay => {
         this.init5();
       });
-    }*/
+    }
 
   },
   init5() {
