@@ -122,8 +122,6 @@ let juego = {
         let paguita2 = document.getElementById('paguita1');
         let destinoPaguita1 = document.getElementById('contenedorBarras1')
         let destinoPaguita2 = document.getElementById('contenedorBarras2')
-        let contador = 0
-        
 
         //estado y acciones luchador1
         if(this.jugador1.vida > 0){
@@ -135,6 +133,10 @@ let juego = {
                         this.jugador1.atacar(this.jugador2);
 
                         //DRAG AND DROP JUGADOR 2
+
+                        paguita2.addEventListener("drag", (e) => {
+                            e.dataTransfer.setData("Text", this.jugador2.vida = 300);
+                        })
 
                         destinoPaguita2.addEventListener("dragenter", (e) => {
                             e.preventDefault();
@@ -157,14 +159,17 @@ let juego = {
 
                         }
 
+                        
                         let lbact = document.getElementById("vidaLuchador2");
                         lbact.innerHTML = `VIDA JUGADOR 2 : ${this.jugador2.vida}`;
 
+
                         //FUNCION DROP JUGADOR 2
                         function soltamosArrastre2(e) {
-                            contador++;
+                            e.dataTransfer.getData("Text");
                             e.dataTransfer.setData("Text", lbact.innerHTML = `VIDA JUGADOR 2 : ${300}`);
                             e.dataTransfer.setData("Text", vida1 = document.getElementById('barraVida2').style.width = "100%")
+
                         }
                         
 
@@ -196,6 +201,11 @@ let juego = {
                     
                     
                      //DRAG AND DROP JUGADOR 1
+
+                    paguita1.addEventListener("drag", (e) => {
+                        e.dataTransfer.setData("Text", this.jugador1.vida = 300)
+                        
+                    } )
                     
                     destinoPaguita1.addEventListener("dragenter", (e) => {
                         e.preventDefault();
@@ -216,16 +226,16 @@ let juego = {
                         vida1 = document.getElementById('barraVida1').style.width = `${0}px`;
                     }
 
+                    
                     let lbact = document.getElementById("vidaLuchador1");
                     lbact.innerHTML = `VIDA JUGADOR 1 : ${this.jugador1.vida}`;
-
                     
                     //funcion DROP JUGADOR 1
                     function soltamosArrastre1(e) {
-                        
+                        e.dataTransfer.getData("Text");
                         e.dataTransfer.setData("Text", lbact.innerHTML = `VIDA JUGADOR 1 : ${300}`);
                         e.dataTransfer.setData("Text", vida1 = document.getElementById('barraVida1').style.width = "100%");
-
+                        
                         
                     }
                     
