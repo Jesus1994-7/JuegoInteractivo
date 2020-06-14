@@ -93,6 +93,7 @@ let juego = {
     victoriap1: "",
     victoriap2: "",
 
+
     resetearLucha(){
         this.turno = 0;
         this.iniciativa = "";
@@ -117,8 +118,9 @@ let juego = {
         this.turno++;
         this.jugador1 = arglu1;
         this.jugador2 = arglu2;
-
-
+        let destinoPaguita1 = document.getElementById('contenedorBarras1')
+        let destinoPaguita2 = document.getElementById('contenedorBarras2')
+        
 
         //estado y acciones luchador1
         if(this.jugador1.vida > 0){
@@ -128,6 +130,18 @@ let juego = {
                         //Ganaria el jugador1
                     }else {
                         this.jugador1.atacar(this.jugador2);
+
+                        //DRAG AND DROP JUGADOR 2
+
+                        destinoPaguita2.addEventListener("dragenter", (e) => {
+                            e.preventDefault();
+                        })
+                
+                        destinoPaguita2.addEventListener("dragover", (e) => {
+                            e.preventDefault();
+                        })
+                
+                        destinoPaguita2.addEventListener("drop", soltamosArrastre2,false);
 
 
                         //BarraVida personaje 2
@@ -142,6 +156,13 @@ let juego = {
 
                         let lbact = document.getElementById("vidaLuchador2");
                         lbact.innerHTML = `VIDA JUGADOR 2 : ${this.jugador2.vida}`;
+
+                        //FUNCION DROP JUGADOR 2
+                        function soltamosArrastre2(e) {
+                            
+                            e.dataTransfer.setData("Text", lbact.innerHTML = `VIDA JUGADOR 2 : ${300}`);
+                            e.dataTransfer.setData("Text", vida1 = document.getElementById('barraVida2').style.width = "100%")
+                        }
 
 
                     }
@@ -169,7 +190,20 @@ let juego = {
                     //gana el jugador2
                 } else {
                     this.jugador2.atacar(this.jugador1);
-
+                    
+                    
+                     //DRAG AND DROP JUGADOR 1
+                    
+                    destinoPaguita1.addEventListener("dragenter", (e) => {
+                        e.preventDefault();
+                    })
+            
+                    destinoPaguita1.addEventListener("dragover", (e) => {
+                        e.preventDefault();
+                    })
+            
+                    destinoPaguita1.addEventListener("drop", soltamosArrastre1,false);
+                    
 
                     //BarraVida Personaje 1
                     let vida1 = document.getElementById('barraVida1').style.width = `${this.jugador1.vida}px`;
@@ -181,6 +215,15 @@ let juego = {
 
                     let lbact = document.getElementById("vidaLuchador1");
                     lbact.innerHTML = `VIDA JUGADOR 1 : ${this.jugador1.vida}`;
+
+                    
+                    //funcion DROP JUGADOR 1
+                    function soltamosArrastre1(e) {
+                        
+                        e.dataTransfer.setData("Text", lbact.innerHTML = `VIDA JUGADOR 1 : ${300}`);
+                        e.dataTransfer.setData("Text", vida1 = document.getElementById('barraVida1').style.width = "100%");
+                    }
+                    
 
                 }
             }

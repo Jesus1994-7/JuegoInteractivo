@@ -302,6 +302,12 @@ body {
 #fist:active {
     filter: invert(40%);
 }
+#contenedorBarras1 {
+    height: 60px;
+}
+#contenedorBarras2 {
+    height: 60px;
+}
 #barraVida1 {
     
     height: 20px;
@@ -313,6 +319,19 @@ body {
     height: 20px;
     background-color: red;
     border-radius: 20px;
+}
+
+/*BOLSA DINERO*/
+
+#dieta1 img {
+    position: absolute;
+    left: 80%;
+    cursor: move;
+}
+#dieta2 img {
+    position: absolute;
+    left: 10%;
+    cursor: move;
 }
 
 

@@ -102,13 +102,15 @@ let partida = {
         </div>
         <div class="cuadroLucha">
           <div class="bloque1">
-              <div id="barraVida1"></div>
+              <div id="contenedorBarras1"><div id="barraVida1"></div></div>
+              <div id="dieta1"><img id="paguita1" src="./img/paguita.png" draggable="true"></div>
               <div class="nombreLuchador1">${this.equipo1[this.cont_fight].nombre}</div>
               <div class="imgLuchador1"><img src="./img/${this.equipo1[this.cont_fight].nombre}p1.png"></div>
               <div id="vidaLuchador1" class="luch1life">VIDA JUGADOR 1 : ${this.equipo1[this.cont_fight].vida}</div>
           </div>
           <div class="bloque2">
-              <div id="barraVida2"></div>
+              <div id="contenedorBarras2"><div id="barraVida2"></div></div>
+              <div id="dieta2"><img id="paguita2" src="./img/paguita.png"></div>
               <div class="nombreLuchador2">${this.equipo2[this.cont_fight].nombre}</div>
               <div class="imgLuchador2"><img src="./img/${this.equipo2[this.cont_fight].nombre}p2.png"></div>
               <div id="vidaLuchador2" class="luch2life">VIDA JUGADOR 2 : ${this.equipo2[this.cont_fight].vida}</div>
