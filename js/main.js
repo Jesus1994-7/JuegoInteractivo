@@ -126,15 +126,13 @@ let partida = {
           <div class="pun1"></div>
           <div class="pun2"><img id="fist" class ="hitter" src="./img/microfono.jpg" onclick="juego.turnoLucha(arg1,arg2)"></div>
           <div class="pun3"></div>
-        </div>`
-
-
-        ;
+        </div>`;
     }else {
   
 
   
       resolveIn(2000).then(delay => {
+        
         this.init5();
       });
     }
@@ -143,8 +141,6 @@ let partida = {
   init5() {
     this.organizador(5);
     
-    let pn = 0;
-    let pnc = 0;
     let eg = "";
 
     //comprobando equipo ganador

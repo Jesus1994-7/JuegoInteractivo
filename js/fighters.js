@@ -118,8 +118,11 @@ let juego = {
         this.turno++;
         this.jugador1 = arglu1;
         this.jugador2 = arglu2;
+        let paguita1 = document.getElementById('paguita1');
+        let paguita2 = document.getElementById('paguita1');
         let destinoPaguita1 = document.getElementById('contenedorBarras1')
         let destinoPaguita2 = document.getElementById('contenedorBarras2')
+        let contador = 0
         
 
         //estado y acciones luchador1
@@ -159,9 +162,12 @@ let juego = {
 
                         //FUNCION DROP JUGADOR 2
                         function soltamosArrastre2(e) {
-                            
+                            contador++;
                             e.dataTransfer.setData("Text", lbact.innerHTML = `VIDA JUGADOR 2 : ${300}`);
                             e.dataTransfer.setData("Text", vida1 = document.getElementById('barraVida2').style.width = "100%")
+                        }
+                        if(contador => 1){
+                            paguita.hidden1 = true;
                         }
 
 
@@ -219,9 +225,13 @@ let juego = {
                     
                     //funcion DROP JUGADOR 1
                     function soltamosArrastre1(e) {
-                        
+                        contador++;
                         e.dataTransfer.setData("Text", lbact.innerHTML = `VIDA JUGADOR 1 : ${300}`);
                         e.dataTransfer.setData("Text", vida1 = document.getElementById('barraVida1').style.width = "100%");
+
+                        if(contador => 1){
+                            destinoPaguita2.hidden = true;
+                        }
                     }
                     
 
