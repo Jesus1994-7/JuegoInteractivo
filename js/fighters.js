@@ -133,10 +133,6 @@ let juego = {
                         //BarraVida personaje 2
                         let vida2 = document.getElementById('barraVida2').style.width = `${this.jugador2.vida}px`;
 
-                        
-                        
-                        
-                        
 
                         if(this.jugador2.vida <= 0) {
                             this.jugador2.vida = 0;
@@ -144,7 +140,7 @@ let juego = {
 
                         }
 
-                        let lbact = document.getElementById("glad2v");
+                        let lbact = document.getElementById("vidaLuchador2");
                         lbact.innerHTML = `VIDA JUGADOR 2 : ${this.jugador2.vida}`;
 
 
@@ -180,10 +176,10 @@ let juego = {
 
                     if(this.jugador1.vida <= 0) {
                         this.jugador1.vida = 0;
-                        vida1 = document.getElementById('barraVida2').style.width = `${0}px`;
+                        vida1 = document.getElementById('barraVida1').style.width = `${0}px`;
                     }
 
-                    let lbact = document.getElementById("glad1v");
+                    let lbact = document.getElementById("vidaLuchador1");
                     lbact.innerHTML = `VIDA JUGADOR 1 : ${this.jugador1.vida}`;
 
                 }

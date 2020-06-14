@@ -175,20 +175,19 @@ body {
 }
 
 
-.bodyfight {
-    height: 60%;
-    
+.cuadroLucha {
+    height: 60%;  
     display: flex;
 }
 
-.bloca {
+.bloque1 {
     position: relative;
     width: 50%;
     height: 100%;
     
 }
 
-.luch1name {
+.nombreLuchador1 {
     height: 10%;
     width: 100%;
     color: blue;
@@ -197,7 +196,7 @@ body {
     margin-top: 20px;
 }
 
-.luch1sprite {
+.imgLuchador1 {
     height: 70%;
     width: 100%;
     text-align: center;
@@ -213,14 +212,14 @@ body {
     margin-top: 20px;
 }
 
-.blocb {
+.bloque2 {
     position: relative;
     width: 50%;
     height: 100%;
     
 }
 
-.luch2name {
+.nombreLuchador2 {
     height: 10%;
     width: 100%;
     color: #ff0000;
@@ -229,7 +228,7 @@ body {
     margin-top: 20px;
 }
 
-.luch2sprite {
+.imgLuchador2 {
     height: 70%;
     width: 100%;
     text-align: center;
